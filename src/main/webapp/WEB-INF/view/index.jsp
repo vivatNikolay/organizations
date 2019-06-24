@@ -18,7 +18,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
     <div>
         <div class="container-fluid">
-            <div class="col-md-16"><div style="text-align: center;">Организации</div>
+            <a href="${pageContext.request.contextPath}/org/create"><button type="button" class="btn btn-primary btn-lg"><b>Добавить</b></button></a>
                 <table class="table">
                     <tr>
                         <div class="col-md-14">
@@ -28,9 +28,8 @@
                             <th class="col-md-2">Регион</th>
                             <th class="col-md-2">УНП</th>
                             <th class="col-md-2">УНПФ</th>
-                            <th class="col-md-2">Создать</th>
-                            <th class="col-md-2">Просмотреть</th>
-                            <th class="col-md-2">Удалить</th>
+                            <th class="col-md-2"></th>
+                            <th class="col-md-2"></th>
                         </div>
                     </tr>
                     <script>
@@ -44,9 +43,8 @@
                                 <td>${showAllOrg.region}</td>
                                 <td>${showAllOrg.UNP}</td>
                                 <td>${showAllOrg.UNPF}</td>
-                                <td><span class="glyphicon glyphicon-plus-sign"></span></td>
-                                <td><a href="${pageContext.request.contextPath}/show?id=${showAllOrg.id}"><span class="glyphicon glyphicon-search"></span></a></td>
-                                <td><span class="glyphicon glyphicon-remove-sign"></span></td>
+                                <td><a href="${pageContext.request.contextPath}/org/view?id=${showAllOrg.id}"><button type="button" class="btn btn-primary"><b>Посмотреть</b></button></a></td>
+                                <td><a href="${pageContext.request.contextPath}/org/delete?id=${showAllOrg.id}"><button type="button" class="btn btn-primary"><b>Удалить</b></button></a></td>
                         </tr>
                     </c:forEach>
                 </table>

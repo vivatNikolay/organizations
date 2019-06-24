@@ -1,5 +1,6 @@
 package com.practice.organizations;
 
+import com.practice.organizations.OrgRepo;
 import com.practice.organizations.entities.Organization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,11 @@ public class TestController {
         org.setType("Юр лицо");
         org.setFullName("ОАО Газпром");
         org.setShortName("Газпром");
-        org.setRegion("Москва, Россия");
+        org.setRegion("Минск");
         org.setUNP(123123123);
         org.setUNPF(321321321);
+        org.setAddress("Молодечно");
+        org.setFullNameOfTheHead("РФ");
         orgRepo.save(org);
         return orgRepo.findAll();
     }
