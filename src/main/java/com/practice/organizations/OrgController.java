@@ -23,23 +23,17 @@ public class OrgController {
 
 
     @GetMapping("/create")
-    public String create(Model model/*, String type, String fullName, String shortName, String region*/) {
-    /*    model.addAttribute("type", type);
-        model.addAttribute("fullName", fullName);
-        model.addAttribute("shortName", shortName);
-        model.addAttribute("region", region);
-*/
+    public String create(Model model) {
+
         Organization org = new Organization();
-        System.out.println("1 " + org);
         model.addAttribute("org", org);
-        model.addAttribute("organization", org);
 
         return "create";
     }
 
     @PostMapping("/save")
     public ModelAndView save(Model model, @ModelAttribute("org") Organization org) {
-        System.out.println(org);
+
         orgRepo.save(org);
         /*if(orgRepo.existsById(id)){
             orgRepo.save(newOrg);

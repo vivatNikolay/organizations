@@ -9,54 +9,53 @@ import java.util.Date;
 @Entity
 public class Organization {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private String type = "";
+    private String type;
 
-    private String fullName = "";
+    private String fullName;
 
-    private String shortName = "";
+    private String shortName;
 
-    private String fullNameOfTheHead = "";
+    private String fullNameOfTheHead;
 
-    private String address = "";
+    private String address;
 
-    private String region = "";
+    private String region;
 
-    private String fax = "";
+    private String fax;
 
-    private String email = "";
+    private String email;
 
-    private Integer UNP = 0;
+    private Integer UNP;
 
-    private String status = "";
+    private String status;
 
-    private Integer UNPF = 0;
+    private Integer UNPF;
 
-    private Integer OKOGU = 0;
+    private Integer OKOGU;
 
-    private String subordination = "";
+    private String subordination;
 
-    private Integer codeOKFS = 0;
+    private Integer codeOKFS;
 
-    private String typeOfOwnership = "";
+    private String typeOfOwnership;
 
-    private String legalForm = "";
+    private String legalForm;
 
-    private Integer codeOKAD = 0;
+    private Integer codeOKAD;
 
-    private String mainEconomicActivity = "";
+    private String mainEconomicActivity;
 
     private Date dateOfRegistration;
 
-    private String nameOfTheRegisteringAuthority = "";
+    private String nameOfTheRegisteringAuthority;
 
     private Date liquidationDate;
 
-    private Integer codeCOATO = 0;
+    private Integer codeCOATO;
 
-    private Integer idHeadOrganization = 0;
+    private Integer idHeadOrganization;
 
 
     public Organization() {
@@ -94,12 +93,6 @@ public class Organization {
         this.idHeadOrganization = idHeadOrganization;
     }
 
-    public Organization(String type, String fullName, String shortName, String region) {
-        this.type = type;
-        this.fullName = fullName;
-        this.shortName = shortName;
-        this.region = region;
-    }
 
     public Integer getId() {
         return id;
