@@ -22,45 +22,64 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assests/css/style.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assests/js/utils.js" type="text/javascript">
-        <jsp:text/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.standalone.min.css" />
+
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
+    <style type="text/css">
+        input {width: 200px; text-align: left}
+    </style>
+    <script type="text/javascript">
+        $(function() {
+
+            $('#datep').datepicker();
+
+        });
     </script>
+
+<%--<script type="text/javascript">
+        $(function(){
+            $('#datetimepicer3').datetimepicker();
+        });
+    </script>--%>
 
 </head>
 <body>
 <div class="container-fluid">
-    <fmt:setLocale value="EN"/>
+    <fmt:setLocale value="RU"/>
     <fmt:setBundle basename="messages" var="i18n"/>
-    <form:form modelAttribute="org" action="save">
+    <%--@elvariable id="org" type="com.practice.organizations.entities.Organization"--%>
+    <form:form modelAttribute="org" action="save" method="post">
         <div class="row">
             <table width="100%" cellspacing="10" cellpadding="5">
                 <tr>
             <td width="300" valign="top">
             <div class="col-6">
-                <div class="form-group">
-                    <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.id"/></label>
-                    <form:input path="id" cssClass="form-control"/>
-                </div>
+                <form:input path="id" cssClass="form-control" type="hidden"/>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.type"/></label>
-                    <form:input path="type" cssClass="form-control"/>
+                    <form:select path="type" cssClass="form-control">
+                        <option value="Юр лицо">Юр лицо</option>
+                        <option value="Индивидуальный предприниматель">Индивидуальный предприниматель</option>
+                    </form:select>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.full"/></label>
                     <form:input path="fullName" cssClass="form-control"/>
+                    <form:errors path="fullName" cssStyle="color: red;"/>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.short"/></label>
                     <form:input path="shortName" cssClass="form-control"/>
+                    <form:errors path="shortName" cssStyle="color: red;"/>
                 </div>
             </div>
             <div class="col-6">
@@ -78,7 +97,15 @@
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.region"/></label>
-                    <form:input path="region" cssClass="form-control"/>
+                    <form:select path="region" cssClass="form-control">
+                        <option value="Брестская область">Брестская область</option>
+                        <option value="Витебская область">Витебская область</option>
+                        <option value="Гомельская область">Гомельская область</option>
+                        <option value="Гродненская область">Гродненская область</option>
+                        <option value="Минская область">Минская область</option>
+                        <option value="Могилевская область">Могилевская область</option>
+                        <option value="г. Минск">г. Минск</option>
+                    </form:select>
                 </div>
             </div>
             <div class="col-6">
@@ -100,24 +127,30 @@
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.UNP"/></label>
                     <form:input path="UNP" cssClass="form-control"/>
+                    <form:errors path="UNP" cssStyle="color: red;"/>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.status"/></label>
-                    <form:input path="status" cssClass="form-control"/>
+                    <form:select path="status" cssClass="form-control">
+                        <option value="Головная">Головная</option>
+                        <option value="Филиал">Филиал</option>
+                    </form:select>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.UNPF"/></label>
                     <form:input path="UNPF" cssClass="form-control"/>
+                    <form:errors path="UNPF" cssStyle="color: red;"/>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.OKOGU"/></label>
                     <form:input path="OKOGU" cssClass="form-control"/>
+                    <form:errors path="OKOGU" cssStyle="color: red;"/>
                 </div>
             </div>
             <div class="col-6">
@@ -130,6 +163,7 @@
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.codeOKFS"/></label>
                     <form:input path="codeOKFS" cssClass="form-control"/>
+                    <form:errors path="codeOKFS" cssStyle="color: red;"/>
                 </div>
             </div>
             <div class="col-6">
@@ -151,6 +185,7 @@
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.codeOKAD"/></label>
                     <form:input path="codeOKAD" cssClass="form-control"/>
+                    <form:errors path="codeOKAD" cssStyle="color: red;"/>
                 </div>
             </div>
             <div class="col-6">
@@ -162,7 +197,13 @@
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.dateOfRegistration"/></label>
-                    <form:input path="dateOfRegistration" cssClass="form-control"/>
+                    <div class="input-group date">
+                    <form:input path="dateOfRegistration" placeholder="dd/mm/yyyy" cssClass="form-control"/>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar" id='datep'></span>
+                        </span>
+                    </div>
+
                 </div>
             </div>
             <div class="col-6">
@@ -174,19 +215,21 @@
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.liquidationDate"/></label>
-                    <form:input path="liquidationDate" cssClass="form-control"/>
+                    <form:input path="liquidationDate" class= "date" placeholder="dd/mm/yyyy" cssClass="form-control"/>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.codeCOATO"/></label>
                     <form:input path="codeCOATO" cssClass="form-control"/>
+                    <form:errors path="codeCOATO" cssClass="error" cssStyle="color: red;"/>
                 </div>
             </div>
             <div class="col-6">
                 <div class="form-group">
                     <label class="col-form-label"><fmt:message bundle="${i18n}" key="org.idHeadOrganization"/></label>
                     <form:input path="idHeadOrganization" cssClass="form-control"/>
+                    <form:errors path="idHeadOrganization" cssClass="error" cssStyle="color: red;"/>
                 </div>
             </div>
             </td>

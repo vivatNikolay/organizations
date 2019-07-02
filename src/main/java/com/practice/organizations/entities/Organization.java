@@ -9,6 +9,7 @@ import java.util.Date;
 @Entity
 public class Organization {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String type;
@@ -27,23 +28,23 @@ public class Organization {
 
     private String email;
 
-    private Integer UNP;
+    private String UNP;
 
     private String status;
 
-    private Integer UNPF;
+    private String UNPF;
 
-    private Integer OKOGU;
+    private String OKOGU;
 
     private String subordination;
 
-    private Integer codeOKFS;
+    private String codeOKFS;
 
     private String typeOfOwnership;
 
     private String legalForm;
 
-    private Integer codeOKAD;
+    private String codeOKAD;
 
     private String mainEconomicActivity;
 
@@ -53,53 +54,20 @@ public class Organization {
 
     private Date liquidationDate;
 
-    private Integer codeCOATO;
+    private String codeCOATO;
 
-    private Integer idHeadOrganization;
+    private String idHeadOrganization;
 
 
     public Organization() {
     }
 
-    public Organization(String type, String fullName, String shortName, String fullNameOfTheHead,
-                        String address, String region, String fax, String email, Integer UNP,
-                        String status, Integer UNPF, Integer OKOGU, String subordination,
-                        Integer codeOKFS, String typeOfOwnership, String legalForm, Integer codeOKAD,
-                        String mainEconomicActivity, Date dateOfRegistration,
-                        String nameOfTheRegisteringAuthority, Date liquidationDate, Integer codeCOATO,
-                        Integer idHeadOrganization) {
-        this.type = type;
-        this.fullName = fullName;
-        this.shortName = shortName;
-        this.fullNameOfTheHead = fullNameOfTheHead;
-        this.address = address;
-        this.region = region;
-        this.fax = fax;
-        this.email = email;
-        this.UNP = UNP;
-        this.status = status;
-        this.UNPF = UNPF;
-        this.OKOGU = OKOGU;
-        this.subordination = subordination;
-        this.codeOKFS = codeOKFS;
-        this.typeOfOwnership = typeOfOwnership;
-        this.legalForm = legalForm;
-        this.codeOKAD = codeOKAD;
-        this.mainEconomicActivity = mainEconomicActivity;
-        this.dateOfRegistration = dateOfRegistration;
-        this.nameOfTheRegisteringAuthority = nameOfTheRegisteringAuthority;
-        this.liquidationDate = liquidationDate;
-        this.codeCOATO = codeCOATO;
-        this.idHeadOrganization = idHeadOrganization;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getType() {
@@ -166,11 +134,11 @@ public class Organization {
         this.email = email;
     }
 
-    public Integer getUNP() {
+    public String getUNP() {
         return UNP;
     }
 
-    public void setUNP(Integer UNP) {
+    public void setUNP(String UNP) {
         this.UNP = UNP;
     }
 
@@ -182,19 +150,19 @@ public class Organization {
         this.status = status;
     }
 
-    public Integer getUNPF() {
+    public String getUNPF() {
         return UNPF;
     }
 
-    public void setUNPF(Integer UNPF) {
+    public void setUNPF(String UNPF) {
         this.UNPF = UNPF;
     }
 
-    public Integer getOKOGU() {
+    public String getOKOGU() {
         return OKOGU;
     }
 
-    public void setOKOGU(Integer OKOGU) {
+    public void setOKOGU(String OKOGU) {
         this.OKOGU = OKOGU;
     }
 
@@ -206,11 +174,11 @@ public class Organization {
         this.subordination = subordination;
     }
 
-    public Integer getCodeOKFS() {
+    public String getCodeOKFS() {
         return codeOKFS;
     }
 
-    public void setCodeOKFS(Integer codeOKFS) {
+    public void setCodeOKFS(String codeOKFS) {
         this.codeOKFS = codeOKFS;
     }
 
@@ -230,11 +198,11 @@ public class Organization {
         this.legalForm = legalForm;
     }
 
-    public Integer getCodeOKAD() {
+    public String getCodeOKAD() {
         return codeOKAD;
     }
 
-    public void setCodeOKAD(Integer codeOKAD) {
+    public void setCodeOKAD(String codeOKAD) {
         this.codeOKAD = codeOKAD;
     }
 
@@ -270,19 +238,45 @@ public class Organization {
         this.liquidationDate = liquidationDate;
     }
 
-    public Integer getCodeCOATO() {
+    public String getCodeCOATO() {
         return codeCOATO;
     }
 
-    public void setCodeCOATO(Integer codeCOATO) {
+    public void setCodeCOATO(String codeCOATO) {
         this.codeCOATO = codeCOATO;
     }
 
-    public Integer getIdHeadOrganization() {
+    public String getIdHeadOrganization() {
         return idHeadOrganization;
     }
 
-    public void setIdHeadOrganization(Integer idHeadOrganization) {
+    public void setIdHeadOrganization(String idHeadOrganization) {
+        this.idHeadOrganization = idHeadOrganization;
+    }
+
+    public Organization(String type, String fullName, String shortName, String fullNameOfTheHead, String address, String region, String fax, String email, String UNP, String status, String UNPF, String OKOGU, String subordination, String codeOKFS, String typeOfOwnership, String legalForm, String codeOKAD, String mainEconomicActivity, Date dateOfRegistration, String nameOfTheRegisteringAuthority, Date liquidationDate, String codeCOATO, String idHeadOrganization) {
+        this.type = type;
+        this.fullName = fullName;
+        this.shortName = shortName;
+        this.fullNameOfTheHead = fullNameOfTheHead;
+        this.address = address;
+        this.region = region;
+        this.fax = fax;
+        this.email = email;
+        this.UNP = UNP;
+        this.status = status;
+        this.UNPF = UNPF;
+        this.OKOGU = OKOGU;
+        this.subordination = subordination;
+        this.codeOKFS = codeOKFS;
+        this.typeOfOwnership = typeOfOwnership;
+        this.legalForm = legalForm;
+        this.codeOKAD = codeOKAD;
+        this.mainEconomicActivity = mainEconomicActivity;
+        this.dateOfRegistration = dateOfRegistration;
+        this.nameOfTheRegisteringAuthority = nameOfTheRegisteringAuthority;
+        this.liquidationDate = liquidationDate;
+        this.codeCOATO = codeCOATO;
         this.idHeadOrganization = idHeadOrganization;
     }
 
